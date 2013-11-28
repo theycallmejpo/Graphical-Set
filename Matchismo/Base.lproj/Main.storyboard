@@ -1,21 +1,221 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hK4-5U-Ms9">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--Playing Card Game View Controller - Playing Card-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="CardGameViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="PlayingCardGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3W2-gd-hiY"/>
+                        <viewControllerLayoutGuide type="bottom" id="cgh-4l-QJ4"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rB4-bT-NWC">
+                                <rect key="frame" x="20" y="486" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evy-HZ-9aX">
+                                <rect key="frame" x="244" y="448" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Re-Deal">
+                                    <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restartGame" destination="vXZ-lx-hvc" eventType="touchUpInside" id="m9G-2e-BL3"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTq-Oy-HTm">
+                                <rect key="frame" x="10" y="72" width="301" height="368"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="sSs-h8-3Li" appends="YES" id="71G-JV-dSH"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="cgh-4l-QJ4" firstAttribute="top" secondItem="rB4-bT-NWC" secondAttribute="bottom" constant="12" id="5Fu-hV-1hX"/>
+                            <constraint firstItem="rB4-bT-NWC" firstAttribute="trailing" secondItem="Evy-HZ-9aX" secondAttribute="trailing" id="IVT-EY-7GX"/>
+                            <constraint firstItem="tTq-Oy-HTm" firstAttribute="top" secondItem="3W2-gd-hiY" secondAttribute="bottom" constant="8" id="JZo-vV-h5n"/>
+                            <constraint firstItem="tTq-Oy-HTm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="ZcW-Oo-eR1"/>
+                            <constraint firstItem="rB4-bT-NWC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="ago-fZ-8jC"/>
+                            <constraint firstItem="rB4-bT-NWC" firstAttribute="centerX" secondItem="tTq-Oy-HTm" secondAttribute="centerX" id="cF1-8v-onR"/>
+                            <constraint firstAttribute="trailing" secondItem="Evy-HZ-9aX" secondAttribute="trailing" constant="20" symbolic="YES" id="cUj-VV-MNJ"/>
+                            <constraint firstItem="Evy-HZ-9aX" firstAttribute="top" secondItem="tTq-Oy-HTm" secondAttribute="bottom" constant="8" symbolic="YES" id="wSs-Oe-sPK"/>
+                            <constraint firstItem="rB4-bT-NWC" firstAttribute="top" secondItem="Evy-HZ-9aX" secondAttribute="bottom" constant="8" symbolic="YES" id="zBz-nu-MAq"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Playing Card" id="IRM-Xr-v7u"/>
+                    <connections>
+                        <outlet property="gameView" destination="tTq-Oy-HTm" id="SEY-Y7-iVw"/>
+                        <outlet property="scoreLabel" destination="rB4-bT-NWC" id="IsI-kQ-2cE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="sSs-h8-3Li">
+                    <connections>
+                        <action selector="pinch:" destination="vXZ-lx-hvc" id="GvX-iD-BZX"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="435" y="-50"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="eeO-Ql-1KP">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="hK4-5U-Ms9" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Eje-JR-b0w">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wsS-bF-wen" kind="relationship" relationship="viewControllers" id="KOm-NS-6g7"/>
+                        <segue destination="nuF-a2-wV8" kind="relationship" relationship="viewControllers" id="07c-3p-5Ir"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oe0-2D-275" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-601" y="258"/>
+        </scene>
+        <!--Set Card Game View Controller - Set Card-->
+        <scene sceneID="iKL-be-Brf">
+            <objects>
+                <viewController id="f1E-Cr-WWL" customClass="SetCardGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sgm-3U-vnV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bkm-86-mq2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8wt-v3-BqA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfi-yN-hpD">
+                                <rect key="frame" x="28" y="488" width="255" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS3-wL-oar">
+                                <rect key="frame" x="218" y="450" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="yhe-Ab-Dio"/>
+                                </constraints>
+                                <state key="normal" title="Re-Deal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restartGame" destination="f1E-Cr-WWL" eventType="touchUpInside" id="dQw-QN-Ylu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgH-kO-Qyj">
+                                <rect key="frame" x="28" y="450" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="nQV-Ap-loP"/>
+                                </constraints>
+                                <state key="normal" title="+3 Cards">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addThreeCards:" destination="f1E-Cr-WWL" eventType="touchUpInside" id="r3E-dg-kj0"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywC-an-vdQ">
+                                <rect key="frame" x="20" y="75" width="280" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wvy-uh-6Me" appends="YES" id="jxO-t0-5k6"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.43529412150382996" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ywC-an-vdQ" firstAttribute="leading" secondItem="8wt-v3-BqA" secondAttribute="leading" constant="20" symbolic="YES" id="1Wb-z0-L1o"/>
+                            <constraint firstItem="gS3-wL-oar" firstAttribute="baseline" secondItem="fgH-kO-Qyj" secondAttribute="baseline" id="28v-qd-3in"/>
+                            <constraint firstItem="fgH-kO-Qyj" firstAttribute="leading" secondItem="8wt-v3-BqA" secondAttribute="leading" constant="28" id="LwP-Yv-sO4"/>
+                            <constraint firstItem="Vfi-yN-hpD" firstAttribute="top" secondItem="fgH-kO-Qyj" secondAttribute="bottom" constant="8" symbolic="YES" id="Qi4-B7-Pfa"/>
+                            <constraint firstItem="fgH-kO-Qyj" firstAttribute="top" secondItem="ywC-an-vdQ" secondAttribute="bottom" constant="8" symbolic="YES" id="UcD-SX-3eX"/>
+                            <constraint firstItem="Bkm-86-mq2" firstAttribute="top" secondItem="Vfi-yN-hpD" secondAttribute="bottom" constant="10" id="Urp-GF-Uak"/>
+                            <constraint firstItem="fgH-kO-Qyj" firstAttribute="leading" secondItem="Vfi-yN-hpD" secondAttribute="leading" id="X4z-y4-gQc"/>
+                            <constraint firstAttribute="trailing" secondItem="Vfi-yN-hpD" secondAttribute="trailing" constant="37" id="b4C-a5-vR3"/>
+                            <constraint firstItem="ywC-an-vdQ" firstAttribute="top" secondItem="Sgm-3U-vnV" secondAttribute="bottom" constant="11" id="b6H-CR-trx"/>
+                            <constraint firstAttribute="trailing" secondItem="ywC-an-vdQ" secondAttribute="trailing" constant="20" symbolic="YES" id="i4b-wb-7Hp"/>
+                            <constraint firstItem="gS3-wL-oar" firstAttribute="trailing" secondItem="ywC-an-vdQ" secondAttribute="trailing" id="ipG-1o-LM8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Set Card" id="F0J-lE-2ca"/>
+                    <connections>
+                        <outlet property="gameView" destination="ywC-an-vdQ" id="22P-Yq-a1G"/>
+                        <outlet property="scoreLabel" destination="Vfi-yN-hpD" id="tTd-lq-xVZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ap9-NU-DTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="wvy-uh-6Me">
+                    <connections>
+                        <action selector="pinch:" destination="f1E-Cr-WWL" id="7Le-QR-g15"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="435" y="612"/>
+        </scene>
+        <!--Navigation Controller - Playing Card Game-->
+        <scene sceneID="Y4k-an-0T1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wsS-bF-wen" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Playing Card Game" id="KtL-j6-o7b"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fYA-VX-M0m">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="n7b-wZ-Z3R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vC-hQ-9KX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="-50"/>
+        </scene>
+        <!--Navigation Controller - Set Card Game-->
+        <scene sceneID="cRr-Io-8bf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nuF-a2-wV8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Set Card Game" id="lYt-86-mqA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="J3R-hY-s0Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f1E-Cr-WWL" kind="relationship" relationship="rootViewController" id="hPe-xc-0wR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hm4-9x-8X6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="612"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
